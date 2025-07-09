@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>I'm Sorry na  bacche 💔</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Baloo+2:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(to right, #ffe4ec, #ffc4e1);
+      font-family: 'Baloo 2', cursive;
+      text-align: center;
+      color: #fff;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    .container {
+      padding: 50px 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      font-size: 3em;
+      text-shadow: 2px 2px #f06292;
+      color: #fff;
+      margin-bottom: 20px;
+      font-family: 'Pacifico', cursive;
+    }
+
+    p {
+      font-size: 1.5em;
+      max-width: 600px;
+      margin: 0 auto 30px;
+      color: #fff5f8;
+      text-shadow: 1px 1px #f06292;
+      line-height: 1.6;
+    }
+
+    .buttons {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    button {
+      background: #fff;
+      color: #f06292;
+      font-family: 'Pacifico', cursive;
+      border: none;
+      padding: 15px 25px;
+      font-size: 1.2em;
+      border-radius: 25px;
+      margin: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(240,98,146,0.3);
+      min-width: 150px;
+    }
+
+    button:hover {
+      background: #f06292;
+      color: #fff;
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(240,98,146,0.4);
+    }
+
+    .gif-box {
+      margin: 30px auto;
+      max-width: 300px;
+    }
+
+    .gif-box img {
+      width: 100%;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 0 25px #f06292;
+      animation: popIn 0.6s ease;
+      border: 3px solid white;
+    }
+
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .teddy {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      animation: dance 1s infinite;
+      z-index: 2;
+    }
+
+    @keyframes dance {
+      0%, 100% { transform: translateX(-50%) rotate(-5deg); }
+      50% { transform: translateX(-50%) rotate(5deg); }
+    }
+
+    #thankYouMessage {
+      display: none;
+      animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    canvas#petalCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 20px;
+      color: #ff6b9e;
+      animation: float 4s ease-in-out infinite;
+      opacity: 0;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2em;
+      }
+      p {
+        font-size: 1.2em;
+      }
+      button {
+        padding: 12px 20px;
+        font-size: 1em;
+        min-width: 120px;
+      }
+    }
+   .image-slideshow {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 20px auto;
+  overflow: hidden;
+  border-radius: 30px;
+  box-shadow: 0 0 25px #f06292;
+}
+
+
+
+#imageSlideshow img,
+#imageSlideshow video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+
+#gallery {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  margin-top: 20px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#gallery img {
+  width: 100%;
+  height: auto;
+  border: 2px solid white;
+  border-radius: 15px;
+  box-shadow: 0 0 10px #f06292;
+  transition: transform 0.3s ease;
+}
+
+#gallery img:hover {
+  transform: scale(1.05);
+}
+
+  </style>
+</head>
+<body>
+  <audio id="currentSong" loop></audio>
+
+  <div class="container" id="mainContent">
+    <h1>I'm So Sorry, My pie lover 💖</h1>
+    <p>I never meant to hurt the heart I cherish most. Every beat of mine aches for your smile, mere behaviour ke liye sorry.... . You are my forever, and I’m never gonna leave u whatever happens. pr dobara aisa hua to m sahan nhi kar paungii shayad..... 💖</p>
+
+    <div class="gif-box" id="gifBox">
+      <img src="https://files.catbox.moe/jh95fa.png" alt="Sad puppy">
+    </div>
+
+    <div class="buttons">
+      <button onclick="handleYes()">Yes, I forgive you 😊</button>
+      <button id="noBtn" onclick="handleNo()">No 😢</button>
+    </div>
+         <p> Please take two minutes then answer</p>
+  </div>
+
+<div class="container" id="thankYouMessage" style="text-align:center; padding: 20px;">
+  <h1>Thank You,Sooooo much meri Gureya 💗</h1>
+  <!-- Romantic + Funny lines -->
+  <div class="romantic-messages" style="margin-top: 30px;">
+    <p>💔 Main tere bina udaas rehti hoon… thoda daatati hu thoda chillati hu pr iska mtlb ye to nhii na tu mujhse share na kare galat baat thi na 🍕💕</p>
+    <p>🔋 Tera msg  dekhte hi meri battery 10% zyada chalti hai… Tu meri power bank hai meri jaan! 💖</p>
+    <p>📶 Jab tu hasti hai na, mere dil ki WiFi full signal pakad leti hai. Tu meri network bhi hai, aur net pack bhi! 🥰</p>
+    <p>😋 Sorry bol rahi hoon… Lekin agar tu ‘OK’ keh degi, toh treat ready hai vo ek alag baat h lene tujhe khud aana padega – momos, ice cream, aur unlimited pyaar! 💓</p>
+    <p>🔍 Tu naraz hoti hai toh lagta hai jaise Google ka server down ho gaya ho… chahe jo bhi ho naraj na hua kr chomuu! ❤️</p>
+  </div>
+
+  <!-- Slideshow box -->
+  <div class="image-slideshow" id="imageSlideshow" style="margin-top: 30px;">
+    <!-- Slideshow images will appear here -->
+  </div>
+</div>
+
+
+<div class="gallery" id="gallery">
+  <!-- Final image grid will appear here -->
+</div>
+<video id="slideshowVideo" controls style="display: none; margin-top: 20px; border-radius: 20px; box-shadow: 0 0 25px #f06292; max-width: 90%;">
+  <source src="https://files.catbox.moe/9c3zvt.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+  </div>
+
+  <canvas id="petalCanvas"></canvas>
+
+  <script>
+    const songs = [
+      "https://files.catbox.moe/z6t5s0.mp3",
+      "https://files.catbox.moe/ovh7gh.mp3",
+      "https://files.catbox.moe/2x8wsc.mp3",
+      "https://files.catbox.moe/bon074.mp3",
+      "https://files.catbox.moe/aevuhr.mp3",
+      "https://files.catbox.moe/562lbj.mp3"
+    ];
+
+    const gifs = [
+      "https://files.catbox.moe/ruojtl.gif",
+      "https://files.catbox.moe/byrfq5.gif",
+      "https://files.catbox.moe/smh1qa.gif",
+      "https://files.catbox.moe/640uqd.gif",
+      "https://files.catbox.moe/jgg8ev.gif",
+      "https://files.catbox.moe/g8tc62.gif"
+    ];
+
+    const noTexts = [
+      "oyeee chomuu solly na man bhi ja😢",
+      "plez plez plez man ja meri gudiya",
+      "I'll never do again, promise",
+      "One more chance?",
+      "ice-cream khilaugi jitni bolegi next time milenge tab",
+      "bacche ki jaan loge kya man jao na"
+    ];
+
+    let noClickCount = 0;
+    const currentSong = document.getElementById("currentSong");
+    const gifBox = document.getElementById("gifBox");
+    const noBtn = document.getElementById("noBtn");
+
+    function playSong(src) {
+      currentSong.pause();
+      currentSong.src = src;
+      currentSong.load();
+      currentSong.volume = 0.7;
+      currentSong.play().catch(e => console.log("Autoplay prevented:", e));
+    }
+
+    function createHearts() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerHTML = "❤";
+      heart.style.left = Math.random() * window.innerWidth + "px";
+      heart.style.top = window.innerHeight + "px";
+      heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+      document.body.appendChild(heart);
+      
+      setTimeout(() => {
+        heart.remove();
+      }, 4000);
+    }
+
+    function handleNo() {
+      createHearts();
+      
+      if (noClickCount < gifs.length) {
+        gifBox.innerHTML = `<img src="${gifs[noClickCount]}" alt="Reaction">`;
+        playSong(songs[noClickCount]);
+        noBtn.innerText = noTexts[noClickCount];
+        noClickCount++;
+        
+        // Make button harder to click each time
+        noBtn.style.transform = `scale(${1 + noClickCount*0.05})`;
+      } else {
+        // Make button run away
+        const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+        const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+        noBtn.style.position = 'absolute';
+        noBtn.style.left = `${x}px`;
+        noBtn.style.top = `${y}px`;
+        noBtn.style.transition = 'all 0.3s ease';
+      }
+    }
+
+    function handleYes() {
+      // Create explosion of hearts
+      for (let i = 0; i < 50; i++) {
+        setTimeout(createHearts, i * 100);
+      }
+      
+      currentSong.pause();
+      document.getElementById('mainContent').style.display = 'none';
+      document.getElementById('thankYouMessage').style.display = 'block';
+      startRoseRain();
+      startSlideshow();
+      playSong("https://files.catbox.moe/a2x4m3.mp3");
+    }
+
+    function startRoseRain() {
+      const canvas = document.getElementById("petalCanvas");
+      const ctx = canvas.getContext("2d");
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      const petalImg = new Image();
+      petalImg.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23ff6b9e' d='M50,30 C60,10 80,10 70,30 C80,40 90,60 70,50 C60,70 40,70 30,50 C10,60 20,40 30,30 C20,10 40,10 50,30 Z'/%3E%3C/svg%3E";
+
+      const petals = Array.from({ length: 50 }).map(() => ({
+        x: Math.random() * canvas.width,
+        y: Math.random() * -100,
+        speed: Math.random() * 2 + 1,
+        size: Math.random() * 20 + 10,
+        drift: Math.random() * 2 - 1,
+        rotation: Math.random() * 360,
+        rotationSpeed: Math.random() * 2 - 1
+      }));
+
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        petals.forEach(p => {
+          p.y += p.speed;
+          p.x += p.drift;
+          p.rotation += p.rotationSpeed;
+          
+          if (p.y > canvas.height) {
+            p.y = -20;
+            p.x = Math.random() * canvas.width;
+          }
+          if (p.x > canvas.width + 20) p.x = -20;
+          if (p.x < -20) p.x = canvas.width + 20;
+          
+          ctx.save();
+          ctx.translate(p.x + p.size/2, p.y + p.size/2);
+          ctx.rotate(p.rotation * Math.PI/180);
+          ctx.drawImage(petalImg, -p.size/2, -p.size/2, p.size, p.size);
+          ctx.restore();
+        });
+        requestAnimationFrame(animate);
+      }
+
+      petalImg.onload = animate;
+      
+      // Handle window resize
+      window.addEventListener('resize', () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      });
+    }
+
+    // Initial animation
+    setInterval(createHearts, 300);
+  const slideshowImages = [
+  "https://files.catbox.moe/pdw5my.jpg",
+  "https://files.catbox.moe/iiyjtw.jpg",
+  "https://files.catbox.moe/wmhbo4.webp",
+  "https://files.catbox.moe/a41kqh.png",
+  "https://files.catbox.moe/fl4dnk.webp",
+  "https://files.catbox.moe/xlxqg0.webp",
+  "https://files.catbox.moe/j6qe46.jpeg",
+  "https://files.catbox.moe/y8kvmk.avif",
+  "https://files.catbox.moe/z9j3we.webp",
+  "https://files.catbox.moe/57sk87.jpg"
+];
+
+function startSlideshow() {
+  const slideshow = document.getElementById('imageSlideshow');
+  const gallery = document.getElementById('gallery');
+  gallery.innerHTML = ''; // Clear gallery
+  gallery.style.display = 'grid';
+
+  let index = 0;
+
+  const imgTop = document.createElement('img');
+  imgTop.classList.add('active');
+  slideshow.innerHTML = '';
+  slideshow.appendChild(imgTop);
+
+  function showNextImage() {
+    if (index >= slideshowImages.length) {
+      // When all images are shown, replace slideshow with video
+      slideshow.innerHTML = '';
+      slideshow.style.width = '100%';
+      slideshow.style.height = 'auto';
+
+      const video = document.createElement('video');
+      video.setAttribute('controls', true);
+      video.setAttribute('autoplay', true);
+      video.setAttribute('playsinline', true);
+      video.setAttribute('muted', false);
+      video.style.width = '100%';
+      video.style.maxWidth = '1000px';
+      video.style.borderRadius = '20px';
+      video.style.boxShadow = '0 0 25px #f06292';
+      video.style.display = 'block';
+      video.style.margin = '0 auto';
+
+      const source = document.createElement('source');
+      source.src = 'https://files.catbox.moe/9c3zvt.mp4'; // 🔁 Replace with your video URL
+      source.type = 'video/mp4';
+      video.appendChild(source);
+
+      slideshow.appendChild(video);
+      return;
+    }
+
+    const src = slideshowImages[index];
+    imgTop.src = src;
+
+    const imgClone = document.createElement('img');
+    imgClone.src = src;
+    imgClone.style.opacity = '0';
+    imgClone.style.transform = 'scale(0.8)';
+    gallery.appendChild(imgClone);
+
+    setTimeout(() => {
+      imgClone.style.transition = 'all 0.8s ease';
+      imgClone.style.opacity = '1';
+      imgClone.style.transform = 'scale(1)';
+    }, 50);
+
+    index++;
+    setTimeout(showNextImage, 2500); // Next image every 2.5s
+  }
+
+  showNextImage();
+}
+
+
+  </script>
+</body>
+</html>
